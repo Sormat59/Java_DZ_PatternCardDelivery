@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/iiv27r8utryrl6f7?svg=true)](https://ci.appveyor.com/project/Sormat59/java-dz-patterncarddelivery)

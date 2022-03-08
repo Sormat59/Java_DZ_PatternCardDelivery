@@ -1,8 +1,6 @@
 package ru.netology;
 
 import com.github.javafaker.Faker;
-
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -18,19 +16,12 @@ public class DataGenerator {
 
     public static String getDataRandom() {
         Random random = new Random();
-        int minDay = (int) LocalDate.now().plusDays(3).toEpochDay();
-        int maxDay = (int) LocalDate.now().plusDays(3).plusMonths(5).toEpochDay();
-        long randomDay = minDay + random.nextInt(maxDay - minDay);
-        String randomDate = LocalDate.ofEpochDay(randomDay).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        return randomDate;
+        int randomDay = 3 + random.nextInt(362);
+        return LocalDate.now().plusDays(randomDay).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
-    public static String generateDataDefault() {
-        String setDateDefault = LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        return setDateDefault;
-    }
 
-    public static String getName(){
+        public static String getName(){
         return faker.name().fullName();
     }
 

@@ -17,9 +17,7 @@ public class CardDeliveryTest {
     public void shouldRegByAcc() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").val(DataGenerator.getCity());
-
         String date = DataGenerator.getDataRandom();
-
         $("[placeholder='Дата встречи']").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[placeholder='Дата встречи']").setValue(date);
         $("[data-test-id='name'] input").val(DataGenerator.getName());

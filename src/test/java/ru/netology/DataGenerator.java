@@ -16,7 +16,7 @@ public class DataGenerator {
 
     public static String getDataRandom() {
         Random random = new Random();
-        int randomDay = 3 + random.nextInt(362);
+        int randomDay = 3 + random.nextInt(120);
         return LocalDate.now().plusDays(randomDay).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 

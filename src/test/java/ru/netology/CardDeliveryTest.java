@@ -18,6 +18,7 @@ public class CardDeliveryTest {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").val(DataGenerator.getCity());
         String date = DataGenerator.getDataRandom();
+        String newDate = DataGenerator.getDataRandom();
         $("[placeholder='Дата встречи']").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[placeholder='Дата встречи']").setValue(date);
         $("[data-test-id='name'] input").val(DataGenerator.getName());
@@ -26,11 +27,13 @@ public class CardDeliveryTest {
         $(withText("Запланировать")).click();
         $(withText("Успешно!")).shouldBe(visible);
         $("[data-test-id='success-notification']").shouldBe(visible).shouldHave(Condition.text("Встреча успешно запланирована на " + date));
-        $("[data-test-id='date'] input").setValue(DataGenerator.getDataRandom());
+        $("[placeholder='Дата встречи']").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("[data-test-id='date'] input").setValue(newDate);
         $(withText("Запланировать")).click();
         $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?")).shouldBe(visible);
         $("[data-test-id=replan-notification] button.button").click();
         $(withText("Успешно")).shouldBe(visible);
+        $("[data-test-id='success-notification']").shouldBe(visible).shouldHave(Condition.text("Встреча успешно запланирована на " + newDate));
 
     }
 

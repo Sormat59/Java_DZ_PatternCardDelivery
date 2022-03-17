@@ -28,7 +28,7 @@ public class CardDeliveryTest {
         $(withText("Успешно!")).shouldBe(visible);
         $("[data-test-id='success-notification']").shouldBe(visible).shouldHave(Condition.text("Встреча успешно запланирована на " + date));
         $("[placeholder='Дата встречи']").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(newDate);
+        $("[placeholder='Дата встречи']").setValue(newDate);
         $(withText("Запланировать")).click();
         $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?")).shouldBe(visible);
         $("[data-test-id=replan-notification] button.button").click();
